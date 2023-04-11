@@ -188,3 +188,35 @@ SELECT nombre AS "Nombre del Producto", precio AS "Precio Unitario" FROM product
 | Impresora HP Deskjet 3720 |           59.99 |
 +---------------------------+-----------------+
 ```
+### 11. Lista el nombre y el precio del producto más caro. (Utilice solamente las cláusulas ORDER BY y LIMIT)
+```
+SELECT nombre AS "Nombre del Producto", precio AS "Precio Unitario" FROM producto ORDER BY precio DESC LIMIT 1;
++-------------------------+-----------------+
+| Nombre del Producto     | Precio Unitario |
++-------------------------+-----------------+
+| GeForce GTX 1080 Xtreme |             755 |
++-------------------------+-----------------+
+```
+### 12. Lista el nombre de los productos que tienen un precio menor o igual a $120.
+```
+SELECT nombre AS "Nombre del Producto" FROM producto WHERE precio < 120;
++---------------------------+
+| Nombre del Producto       |
++---------------------------+
+| Disco duro SATA3 1TB      |
+| Impresora HP Deskjet 3720 |
++---------------------------+
+```
+### 13. Lista todos los productos que tengan un precio entre $60 y $200. Utilizando el operador BETWEEN.
+```
+SELECT nombre AS "Nombre del Producto" FROM producto WHERE precio BETWEEN 60 and 200;
++---------------------------------+
+| Nombre del Producto             |
++---------------------------------+
+| Disco duro SATA3 1TB            |
+| Memoria RAM DDR4 8GB            |
+| Disco SSD 1 TB                  |
+| GeForce GTX 1050Ti              |
+| Impresora HP Laserjet Pro M26nw |
++---------------------------------+
+```
