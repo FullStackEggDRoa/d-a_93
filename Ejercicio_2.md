@@ -220,3 +220,26 @@ SELECT nombre AS "Nombre del Producto" FROM producto WHERE precio BETWEEN 60 and
 | Impresora HP Laserjet Pro M26nw |
 +---------------------------------+
 ```
+### 14. Lista todos los productos donde el código de fabricante sea 1, 3 o 5. Utilizando el operador IN.
+```
+SELECT nombre AS "Nombre del Producto" FROM producto WHERE codigo_fabricante IN(1,3,5);
++---------------------------------+
+| Nombre del Producto             |
++---------------------------------+
+| Monitor 24 LED Full HD          |
+| Monitor 27 LED Full HD          |
+| Impresora HP Deskjet 3720       |
+| Impresora HP Laserjet Pro M26nw |
+| Disco duro SATA3 1TB            |
++---------------------------------+
+```
+### 15. Devuelve una lista con el nombre de todos los productos que contienen la cadena Portátil en el nombre.
+```
+SELECT nombre AS "Nombre del Producto" FROM producto WHERE nombre LIKE '%portátil%';
++----------------------+
+| Nombre del Producto  |
++----------------------+
+| Portátil Yoga 520    |
+| Portátil Ideapd 320  |
++----------------------+
+```
