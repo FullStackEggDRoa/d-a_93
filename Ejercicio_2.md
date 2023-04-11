@@ -181,5 +181,10 @@ SELECT * FROM fabricante LIMIT 5;
 ```
 ### 10. Lista el nombre y el precio del producto más barato. (Utilice solamente las cláusulas ORDER BY y LIMIT)
 ```
-
+SELECT nombre AS "Nombre del Producto", precio AS "Precio Unitario" FROM producto ORDER BY precio ASC LIMIT 1;
++---------------------------+-----------------+
+| Nombre del Producto       | Precio Unitario |
++---------------------------+-----------------+
+| Impresora HP Deskjet 3720 |           59.99 |
++---------------------------+-----------------+
 ```
