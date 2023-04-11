@@ -79,5 +79,107 @@ SELECT nombre AS "Nombre Producto", ROUND(precio) AS "Precio U.  Redondeado" FRO
 ```
 ### 5. Lista el código de los fabricantes que tienen productos en la tabla producto.
 ```
+SELECT codigo_fabricante  AS "Codigo Fabricante" FROM producto;
++-------------------+
+| Codigo Fabricante |
++-------------------+
+|                 1 |
+|                 1 |
+|                 2 |
+|                 2 |
+|                 3 |
+|                 3 |
+|                 4 |
+|                 5 |
+|                 6 |
+|                 6 |
+|                 7 |
++-------------------+
+
+```
+### 6. Lista el código de los fabricantes que tienen productos en la tabla producto, sin mostrar los repetidos.
+```
+SELECT codigo_fabricante  AS "Codigo Fabricante" FROM producto GROUP BY codigo_fabricante;
++-------------------+
+| Codigo Fabricante |
++-------------------+
+|                 1 |
+|                 2 |
+|                 3 |
+|                 4 |
+|                 5 |
+|                 6 |
+|                 7 |
++-------------------+
+```
+### 7. Lista los nombres de los fabricantes ordenados de forma ascendente.
+```
+SELECT nombre AS "Nombre Fabricante" FROM fabricante ORDER BY nombre ASC;
++-------------------+
+| Nombre Fabricante |
++-------------------+
+| Asus              |
+| Crucial           |
+| Gigabyte          |
+| Hewlett-Packard   |
+| Huawei            |
+| Lenovo            |
+| Samsung           |
+| Seagate           |
+| Xiaomi            |
++-------------------+
+
+```
+### 8. Lista los nombres de los productos ordenados en primer lugar por el nombre de forma ascendente y en segundo lugar por el precio de forma descendente.
+
+```
+SELECT nombre AS "Nombre de Producto" FROM producto ORDER BY nombre ASC;
++---------------------------------+
+| Nombre de Producto              |
++---------------------------------+
+| Disco duro SATA3 1TB            |
+| Disco SSD 1 TB                  |
+| GeForce GTX 1050Ti              |
+| GeForce GTX 1080 Xtreme         |
+| Impresora HP Deskjet 3720       |
+| Impresora HP Laserjet Pro M26nw |
+| Memoria RAM DDR4 8GB            |
+| Monitor 24 LED Full HD          |
+| Monitor 27 LED Full HD          |
+| Portátil Ideapd 320             |
+| Portátil Yoga 520               |
++---------------------------------+
+SELECT nombre AS "Nombre de Producto" FROM producto ORDER BY precio DESC;
++---------------------------------+
+| Nombre de Producto              |
++---------------------------------+
+| GeForce GTX 1080 Xtreme         |
+| Portátil Yoga 520               |
+| Portátil Ideapd 320             |
+| Monitor 27 LED Full HD          |
+| Monitor 24 LED Full HD          |
+| GeForce GTX 1050Ti              |
+| Impresora HP Laserjet Pro M26nw |
+| Disco SSD 1 TB                  |
+| Memoria RAM DDR4 8GB            |
+| Disco duro SATA3 1TB            |
+| Impresora HP Deskjet 3720       |
++---------------------------------+
+```
+### 9. Devuelve una lista con las 5 primeras filas de la tabla fabricante.
+```
+SELECT * FROM fabricante LIMIT 5;
++--------+-----------------+
+| codigo | nombre          |
++--------+-----------------+
+|      1 | Asus            |
+|      2 | Lenovo          |
+|      3 | Hewlett-Packard |
+|      4 | Samsung         |
+|      5 | Seagate         |
++--------+-----------------+
+```
+### 10. Lista el nombre y el precio del producto más barato. (Utilice solamente las cláusulas ORDER BY y LIMIT)
+```
 
 ```
