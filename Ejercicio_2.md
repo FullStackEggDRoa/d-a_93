@@ -1,6 +1,6 @@
 # EJERCICIOS DE APRENDIZAJE
 ## Ejercicio_2
-Diagrama EMR de la Base de Datos Tienda: 
+Diagrama EMR de la Base de Datos Tienda: https://github.com/FullStackEggDRoa/dia_93/blob/f835c7d3424a0675f8070c5452d98c0f1d7094c8/Ejercicio_2.mwb 
 ### 1. Lista el nombre de todos los productos que hay en la tabla producto.
 ```
 SELECT nombre AS "Nombre Producto" FROM producto;
