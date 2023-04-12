@@ -265,3 +265,22 @@ nte.codigo;
 |                 11 | Impresora HP Laserjet Pro M26nw |                  3 | Hewlett-Packard       |
 +--------------------+---------------------------------+--------------------+-----------------------+
 ```
+### 2. Devuelve una lista con el nombre del producto, precio y nombre de fabricante de todos los productos de la base de datos. Ordene el resultado por el nombre del fabricante, por orden alfabético.
+```
+SELECT producto.nombre AS "Nombre del Producto", precio AS "Precio Unitario", fabricante.nombre AS "Nombre del Fabricante" FROM producto INNER JOIN fabricante ON producto.codigo_fabricante = fabricante.codigo ORDER BY fabricante.nombre ASC;
++---------------------------------+-----------------+-----------------------+
+| Nombre del Producto             | Precio Unitario | Nombre del Fabricante |
++---------------------------------+-----------------+-----------------------+
+| Monitor 24 LED Full HD          |             202 | Asus                  |
+| Monitor 27 LED Full HD          |          245.99 | Asus                  |
+| Memoria RAM DDR4 8GB            |             120 | Crucial               |
+| GeForce GTX 1080 Xtreme         |             755 | Crucial               |
+| GeForce GTX 1050Ti              |             185 | Gigabyte              |
+| Impresora HP Deskjet 3720       |           59.99 | Hewlett-Packard       |
+| Impresora HP Laserjet Pro M26nw |             180 | Hewlett-Packard       |
+| Portátil Yoga 520               |             559 | Lenovo                |
+| Portátil Ideapd 320             |             444 | Lenovo                |
+| Disco SSD 1 TB                  |          150.99 | Samsung               |
+| Disco duro SATA3 1TB            |           86.99 | Seagate               |
++---------------------------------+-----------------+-----------------------+
+```
