@@ -352,3 +352,27 @@ SELECT producto.nombre AS "Nombre de Producto", precio AS "Precio Unitario", fab
 | Portátil Yoga 520               |             559 | Lenovo               |
 +---------------------------------+-----------------+----------------------+
 ```
+## Consultas Multitabla
+Resuelva todas las consultas utilizando las cláusulas LEFT JOIN y RIGHT JOIN.
+### 1. Devuelve un listado de todos los fabricantes que existen en la base de datos, junto con los productos que tiene cada uno de ellos. El listado deberá mostrar también aquellos fabricantes que no tienen productos asociados.
+```
+SELECT fabricante.nombre AS "Nombre de Fabricante", producto.nombre AS "Nombre de Producto" FROM producto RIGHT JOIN fabricante
+ ON producto.codigo_fabricante = fabricante.codigo;
++----------------------+---------------------------------+
+| Nombre de Fabricante | Nombre de Producto              |
++----------------------+---------------------------------+
+| Asus                 | Monitor 24 LED Full HD          |
+| Asus                 | Monitor 27 LED Full HD          |
+| Lenovo               | Portátil Yoga 520               |
+| Lenovo               | Portátil Ideapd 320             |
+| Hewlett-Packard      | Impresora HP Deskjet 3720       |
+| Hewlett-Packard      | Impresora HP Laserjet Pro M26nw |
+| Samsung              | Disco SSD 1 TB                  |
+| Seagate              | Disco duro SATA3 1TB            |
+| Crucial              | Memoria RAM DDR4 8GB            |
+| Crucial              | GeForce GTX 1080 Xtreme         |
+| Gigabyte             | GeForce GTX 1050Ti              |
+| Huawei               | NULL                            |
+| Xiaomi               | NULL                            |
++----------------------+---------------------------------+
+```
