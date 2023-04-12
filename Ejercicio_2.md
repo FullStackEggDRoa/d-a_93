@@ -425,3 +425,23 @@ SELECT nombre AS "Nombre de Producto" FROM producto WHERE codigo_fabricante = (S
 | Monitor 27 LED Full HD |
 +------------------------+
 ```
+## Subconsultas con IN y NOT IN
+### 1. Devuelve los nombres de los fabricantes que tienen productos asociados. (Utilizando IN o NOT IN).
+```
+SELECT nombre AS "Nombre Fabricante" FROM fabricante WHERE codigo IN(SELECT codigo_fabricante FROM producto GROUP BY codigo_fabricante);
++-------------------+
+| Nombre Fabricante |
++-------------------+
+| Asus              |
+| Lenovo            |
+| Hewlett-Packard   |
+| Samsung           |
+| Seagate           |
+| Crucial           |
+| Gigabyte          |
++-------------------+
+```
+### 2. Devuelve los nombres de los fabricantes que no tienen productos asociados. (Utilizando IN o NOT IN).
+```
+
+```
