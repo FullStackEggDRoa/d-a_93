@@ -376,3 +376,13 @@ SELECT fabricante.nombre AS "Nombre de Fabricante", producto.nombre AS "Nombre d
 | Xiaomi               | NULL                            |
 +----------------------+---------------------------------+
 ```
+### 2. Devuelve un listado donde sólo aparezcan aquellos fabricantes que no tienen ningún producto asociado.
+```
+SELECT fabricante.nombre AS "Nombre de Fabricante", producto.nombre AS "Nombre de Producto" FROM producto RIGHT JOIN fabricante ON producto.codigo_fabricante = fabricante.codigo WHERE producto.nombre IS NULL;
++----------------------+--------------------+
+| Nombre de Fabricante | Nombre de Producto |
++----------------------+--------------------+
+| Huawei               | NULL               |
+| Xiaomi               | NULL               |
++----------------------+--------------------+
+```
