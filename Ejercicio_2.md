@@ -243,3 +243,25 @@ SELECT nombre AS "Nombre del Producto" FROM producto WHERE nombre LIKE '%portát
 | Portátil Ideapd 320  |
 +----------------------+
 ```
+## Consultas Multitabla
+### 1. Devuelve una lista con el código del producto, nombre del producto, código del fabricante y nombre del fabricante, de todos los productos de la base de datos.
+```
+SELECT producto.codigo AS "Codigo de Producto", producto.nombre AS "Nombre de Producto", producto.codigo_fabricante AS "Codigo
+Frabricante", fabricante.nombre AS "Nombre del Fabricante" FROM producto INNER JOIN fabricante ON producto.codigo_fabricante = fabrica
+nte.codigo;
++--------------------+---------------------------------+--------------------+-----------------------+
+| Codigo de Producto | Nombre de Producto              | Codigo Frabricante | Nombre del Fabricante |
++--------------------+---------------------------------+--------------------+-----------------------+
+|                  1 | Disco duro SATA3 1TB            |                  5 | Seagate               |
+|                  2 | Memoria RAM DDR4 8GB            |                  6 | Crucial               |
+|                  3 | Disco SSD 1 TB                  |                  4 | Samsung               |
+|                  4 | GeForce GTX 1050Ti              |                  7 | Gigabyte              |
+|                  5 | GeForce GTX 1080 Xtreme         |                  6 | Crucial               |
+|                  6 | Monitor 24 LED Full HD          |                  1 | Asus                  |
+|                  7 | Monitor 27 LED Full HD          |                  1 | Asus                  |
+|                  8 | Portátil Yoga 520               |                  2 | Lenovo                |
+|                  9 | Portátil Ideapd 320             |                  2 | Lenovo                |
+|                 10 | Impresora HP Deskjet 3720       |                  3 | Hewlett-Packard       |
+|                 11 | Impresora HP Laserjet Pro M26nw |                  3 | Hewlett-Packard       |
++--------------------+---------------------------------+--------------------+-----------------------+
+```
