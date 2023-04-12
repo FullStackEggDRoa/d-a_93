@@ -386,3 +386,15 @@ SELECT fabricante.nombre AS "Nombre de Fabricante", producto.nombre AS "Nombre d
 | Xiaomi               | NULL               |
 +----------------------+--------------------+
 ```
+## Subconsultas (En la cláusula WHERE)
+## Con operadores básicos de comparación
+### 1. Devuelve todos los productos del fabricante Lenovo. (Sin utilizar INNER JOIN).
+```
+SELECT nombre AS "Nombre Producto" FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = "Lenovo");
++----------------------+
+| Nombre Producto      |
++----------------------+
+| Portátil Yoga 520    |
+| Portátil Ideapd 320  |
++----------------------+
+```
