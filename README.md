@@ -14,4 +14,5 @@ Propiedades de Proyecto / Librerías / Class Path / Adicionar Proyecto (Add Proj
 
 ## Ejercicio 2
 Link Resultados: https://github.com/FullStackEggDRoa/dia_93/blob/main/Ejercicio_2.md
+<br>
 Link Script MySQL: https://github.com/FullStackEggDRoa/dia_93/blob/main/Ejercicio_2.sql

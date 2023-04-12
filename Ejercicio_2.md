@@ -398,3 +398,12 @@ SELECT nombre AS "Nombre Producto" FROM producto WHERE codigo_fabricante = (SELE
 | Portátil Ideapd 320  |
 +----------------------+
 ```
+### 2. Devuelve todos los datos de los productos que tienen el mismo precio que el producto más caro del fabricante Lenovo. (Sin utilizar INNER JOIN).
+```
+SELECT * FROM producto WHERE precio = (SELECT MAX(precio) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = "Lenovo"));
++--------+--------------------+--------+-------------------+
+| codigo | nombre             | precio | codigo_fabricante |
++--------+--------------------+--------+-------------------+
+|      8 | Portátil Yoga 520  |    559 |                 2 |
++--------+--------------------+--------+-------------------+
+```
