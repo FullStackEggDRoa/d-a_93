@@ -407,3 +407,21 @@ SELECT * FROM producto WHERE precio = (SELECT MAX(precio) FROM producto WHERE co
 |      8 | Portátil Yoga 520  |    559 |                 2 |
 +--------+--------------------+--------+-------------------+
 ```
+### 3. Lista el nombre del producto más caro del fabricante Lenovo.
+```
+SELECT nombre AS "Nombre de Producto" FROM producto WHERE precio = (SELECT MAX(precio) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = "Lenovo"));
++--------------------+
+| Nombre de Producto |
++--------------------+
+| Portátil Yoga 520  |
++--------------------+
+```
+### 4. Lista todos los productos del fabricante Asus que tienen un precio superior al precio medio de todos sus productos.
+```
+SELECT nombre AS "Nombre de Producto" FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre="Asus") AND precio > (SELECT AVG(precio) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre="Asus"));
++------------------------+
+| Nombre de Producto     |
++------------------------+
+| Monitor 27 LED Full HD |
++------------------------+
+```
