@@ -313,3 +313,42 @@ SELECT producto.nombre AS "Nombre de Producto", precio AS "Precio Unitario", fab
 | GeForce GTX 1080 Xtreme |             755 | Crucial              |
 +-------------------------+-----------------+----------------------+
 ```
+### 6. Devuelve un listado con todos los productos de los fabricantes Asus, Hewlett-Packard. Utilizando el operador IN.
+```
+SELECT producto.nombre AS "Nombre de Producto", fabricante.nombre AS "Nombre de Fabricante" FROM producto INNER JOIN fabricante ON producto.codigo_fabricante = fabricante.codigo WHERE fabricante.nombre IN ("Asus","Hewlett-Packard");
++---------------------------------+----------------------+
+| Nombre de Producto              | Nombre de Fabricante |
++---------------------------------+----------------------+
+| Monitor 24 LED Full HD          | Asus                 |
+| Monitor 27 LED Full HD          | Asus                 |
+| Impresora HP Deskjet 3720       | Hewlett-Packard      |
+| Impresora HP Laserjet Pro M26nw | Hewlett-Packard      |
++---------------------------------+----------------------+
+```
+### 7. Devuelve un listado con el nombre de producto, precio y nombre de fabricante, de todos los productos que tengan un precio mayor o igual a $180. Ordene el resultado en primer lugar por el precio (en orden descendente) y en segundo lugar por el nombre (en orden ascendente)
+```
+SELECT producto.nombre AS "Nombre de Producto", precio AS "Precio Unitario", fabricante.nombre AS "Nombre de Fabricante" FROM producto INNER JOIN fabricante ON producto.codigo_fabricante = fabricante.codigo WHERE precio >= 180 ORDER BY precio DESC;
++---------------------------------+-----------------+----------------------+
+| Nombre de Producto              | Precio Unitario | Nombre de Fabricante |
++---------------------------------+-----------------+----------------------+
+| GeForce GTX 1080 Xtreme         |             755 | Crucial              |
+| Portátil Yoga 520               |             559 | Lenovo               |
+| Portátil Ideapd 320             |             444 | Lenovo               |
+| Monitor 27 LED Full HD          |          245.99 | Asus                 |
+| Monitor 24 LED Full HD          |             202 | Asus                 |
+| GeForce GTX 1050Ti              |             185 | Gigabyte             |
+| Impresora HP Laserjet Pro M26nw |             180 | Hewlett-Packard      |
++---------------------------------+-----------------+----------------------+
+SELECT producto.nombre AS "Nombre de Producto", precio AS "Precio Unitario", fabricante.nombre AS "Nombre de Fabricante" FROM producto INNER JOIN fabricante ON producto.codigo_fabricante = fabricante.codigo WHERE precio >= 180 ORDER BY producto.nombre ASC;
++---------------------------------+-----------------+----------------------+
+| Nombre de Producto              | Precio Unitario | Nombre de Fabricante |
++---------------------------------+-----------------+----------------------+
+| GeForce GTX 1050Ti              |             185 | Gigabyte             |
+| GeForce GTX 1080 Xtreme         |             755 | Crucial              |
+| Impresora HP Laserjet Pro M26nw |             180 | Hewlett-Packard      |
+| Monitor 24 LED Full HD          |             202 | Asus                 |
+| Monitor 27 LED Full HD          |          245.99 | Asus                 |
+| Portátil Ideapd 320             |             444 | Lenovo               |
+| Portátil Yoga 520               |             559 | Lenovo               |
++---------------------------------+-----------------+----------------------+
+```
