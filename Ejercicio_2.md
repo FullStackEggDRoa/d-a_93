@@ -443,5 +443,16 @@ SELECT nombre AS "Nombre Fabricante" FROM fabricante WHERE codigo IN(SELECT codi
 ```
 ### 2. Devuelve los nombres de los fabricantes que no tienen productos asociados. (Utilizando IN o NOT IN).
 ```
+SELECT nombre AS "Nombre Fabricante" FROM fabricante WHERE codigo NOT IN(SELECT codigo_fabricante FROM producto GROUP BY codigo_fabricante);
++-------------------+
+| Nombre Fabricante |
++-------------------+
+| Huawei            |
+| Xiaomi            |
++-------------------+
+```
+## Subconsultas (En la cláusula HAVING)
+### 1. Devuelve un listado con todos los nombres de los fabricantes que tienen el mismo número de productos que el fabricante Lenovo.
+```
 
 ```
