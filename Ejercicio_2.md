@@ -284,3 +284,32 @@ SELECT producto.nombre AS "Nombre del Producto", precio AS "Precio Unitario", fa
 | Disco duro SATA3 1TB            |           86.99 | Seagate               |
 +---------------------------------+-----------------+-----------------------+
 ```
+### 3. Devuelve el nombre del producto, su precio y el nombre de su fabricante, del producto más barato.
+```
+SELECT producto.nombre AS "Nombre de Producto", precio AS "Precio Unitario", fabricante.nombre AS "Nombre de Fabricante" FROM producto INNER JOIN fabricante ON producto.codigo_fabricante = fabricante.codigo ORDER BY precio ASC LIMIT 1;
++---------------------------+--------------------+----------------------+
+| Nombre de Producto        |   Precio Unitario  | Nombre de Fabricante |
++---------------------------+--------------------+----------------------+
+| Impresora HP Deskjet 3720 |              59.99 | Hewlett-Packard      |
++---------------------------+--------------------+----------------------+
+```
+### 4. Devuelve una lista de todos los productos del fabricante Lenovo.
+```
+SELECT producto.nombre AS "Nombre de Producto", precio AS "Precio Unitario", fabricante.nombre AS "Nombre de Fabricante" FROM producto INNER JOIN fabricante ON producto.codigo_fabricante = fabricante.codigo WHERE fabricante.nombre LIKE '%lenovo%';
++----------------------+-----------------+----------------------+
+| Nombre de Producto   | Precio Unitario | Nombre de Fabricante |
++----------------------+-----------------+----------------------+
+| Portátil Yoga 520    |             559 | Lenovo               |
+| Portátil Ideapd 320  |             444 | Lenovo               |
++----------------------+-----------------+----------------------+
+```
+### 5. Devuelve una lista de todos los productos del fabricante Crucial que tengan un precio mayor que $200.
+```
+SELECT producto.nombre AS "Nombre de Producto", precio AS "Precio Unitario", fabricante.nombre AS "Nombre de Fabricante" FROM producto INNER JOIN fabricante ON producto.codigo_fabricante = fabricante.codigo WHERE fabricante.nombre LIKE '%crucial%' AND precio >
+200;
++-------------------------+-----------------+----------------------+
+| Nombre de Producto      | Precio Unitario | Nombre de Fabricante |
++-------------------------+-----------------+----------------------+
+| GeForce GTX 1080 Xtreme |             755 | Crucial              |
++-------------------------+-----------------+----------------------+
+```
