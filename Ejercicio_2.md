@@ -454,17 +454,14 @@ SELECT nombre AS "Nombre Fabricante" FROM fabricante WHERE codigo NOT IN(SELECT 
 ## Subconsultas (En la cláusula HAVING)
 ### 1. Devuelve un listado con todos los nombres de los fabricantes que tienen el mismo número de productos que el fabricante Lenovo.
 ```
-SELECT nombre AS "Nombre Fabricante" FROM fabricante GROUP BY codigo HAVING codigo > (SELECT COUNT(codigo) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = "Lenovo"));
+ SELECT nombre AS "Nombre Fabricante" FROM fabricante WHERE codigo IN(SELECT codigo_fabricante FROM producto GROUP BY codigo_fabricante HAVING COUNT(codigo_fabricante) = (SELECT COUNT(codigo) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = "Lenovo")));
 +-------------------+
 | Nombre Fabricante |
 +-------------------+
+| Asus              |
+| Lenovo            |
 | Hewlett-Packard   |
-| Samsung           |
-| Seagate           |
 | Crucial           |
-| Gigabyte          |
-| Huawei            |
-| Xiaomi            |
 +-------------------+
 
 ```
