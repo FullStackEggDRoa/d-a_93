@@ -464,4 +464,13 @@ SELECT nombre AS "Nombre Fabricante" FROM fabricante WHERE codigo NOT IN(SELECT 
 | Crucial           |
 +-------------------+
 
+SELECT nombre AS "Nombre Fabricante" FROM fabricante WHERE codigo <> (SELECT codigo FROM fabricante WHERE nombre = "Lenovo") AND codigo IN(SELECT codigo_fabricante FROM producto GROUP BY codigo_fabricante HAVING COUNT(codigo_fabricante) = (SELECT COUNT(codig
+o) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = "Lenovo")));
++-------------------+
+| Nombre Fabricante |
++-------------------+
+| Asus              |
+| Hewlett-Packard   |
+| Crucial           |
++-------------------+
 ```
