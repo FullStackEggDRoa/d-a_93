@@ -463,9 +463,24 @@ SELECT nombre AS "Nombre Fabricante" FROM fabricante WHERE codigo NOT IN(SELECT 
 | Hewlett-Packard   |
 | Crucial           |
 +-------------------+
-
+```
+Sin incluir el parámetro validador 
+```
 SELECT nombre AS "Nombre Fabricante" FROM fabricante WHERE codigo <> (SELECT codigo FROM fabricante WHERE nombre = "Lenovo") AND codigo IN(SELECT codigo_fabricante FROM producto GROUP BY codigo_fabricante HAVING COUNT(codigo_fabricante) = (SELECT COUNT(codig
 o) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = "Lenovo")));
++-------------------+
+| Nombre Fabricante |
++-------------------+
+| Asus              |
+| Hewlett-Packard   |
+| Crucial           |
++-------------------+
+```
+Usando Variable Transitoria
+```
+SET @Id_lenovo=''
+SELECT nombre AS "Nombre Fabricante" FROM fabricante WHERE codigo <> (@Id_lenovo) AND codigo IN(SELECT codigo_fabricante FROM producto GROUP BY codigo_fabricante HAVING COUNT(codigo_fabricante) = (SELECT COUNT(codigo) FROM producto WHERE codigo_fabricante =
+(@Id_lenovo := (SELECT codigo FROM fabricante WHERE nombre = "Lenovo"))));
 +-------------------+
 | Nombre Fabricante |
 +-------------------+
