@@ -478,7 +478,7 @@ o) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE 
 ```
 Usando Variable Transitoria
 ```
-SET @Id_lenovo=''
+SET @Id_lenovo='';
 SELECT nombre AS "Nombre Fabricante" FROM fabricante WHERE codigo <> (@Id_lenovo) AND codigo IN(SELECT codigo_fabricante FROM producto GROUP BY codigo_fabricante HAVING COUNT(codigo_fabricante) = (SELECT COUNT(codigo) FROM producto WHERE codigo_fabricante =
 (@Id_lenovo := (SELECT codigo FROM fabricante WHERE nombre = "Lenovo"))));
 +-------------------+
